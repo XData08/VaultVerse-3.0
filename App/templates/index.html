@@ -9,8 +9,98 @@
 {% endblock %}
 
 
-{% block body %}
-<div>
-    <h1>Hi tee shishi</h1>
-</div>
+{% block body %}    
+<section class="container">
+    <div class="my-4 py-4">
+        <div class="row align-items-center">
+            <div class="col-sm-12 col-lg-6">
+                <h1 class="fw-bold text-center text-lg-start title">
+                    A Universe for your Essentials
+                </h1>
+                <p class="lead fs-5">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis suscipit eaque deserunt perferendis saepe, non quibusdam? Quidem quam non quaerat obcaecati fuga sit sapiente dignissimos exercitationem inventore 
+                </p>
+                <form class="row" method="POST">
+                    <div class="col-sm-12 col-lg-6 pt-2">
+                        <input type="email" class="form-control" 
+                            placeholder="Email Address" >
+                    </div>
+                    <div class="col-sm-12 col-lg-4 pt-2">
+                        <button class="btn btn-danger fw-semibold w-100">Sign up for VaultVerse</button> 
+                    </div>
+                </form> 
+            </div>
+            <div class="col-sm-12 col-lg-6">
+                <img src="{{ url_for('static', filename='svg/Homepage.svg') }}" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid bg-dark">
+    <div class="container">
+        <h1>Hello world </h1>
+    </div>
+</section>
+
+<section class="container-fluid my-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='image/easy-to-use.png') }}"
+                        class="card-img-top w-25 mx-auto py-3 mt-3">  
+                    <div class="card-body">
+                        <h5 class="card-title">Easy to Use</h5>
+                        <p clas="card-text text-muted">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure impedit soluta, suscipit quaerat assumenda architecto?
+                        </p>
+
+                        <btn type="button" class="btn btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#EasyToUse" >Learn More</btn>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-lg-4">
+                <div class="card">
+                    <img src="{{ url_for('static', filename='image/cyber-security.png') }}"
+                        class="card-img-top w-25 mx-auto py-3 mt-3"> 
+                    <div class="card-body">
+                        <h5 class="card-title">Secure Storage</h5>
+                        <p clas="card-text text-muted">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure impedit soluta, suscipit quaerat assumenda architecto?
+                        </p>
+
+                        <btn type="button" class="btn btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#SecureStorage" >Learn More</btn>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-lg-4">
+                <div class="card ">
+                    <img src="{{ url_for('static', filename='image/efficiency.png') }}"
+                        class="card-img-top w-25 mx-auto py-3 mt-3"> 
+                    <div class="card-body">
+                        <h5 class="card-title">Fast & Accessible</h5>
+                        <p clas="card-text text-muted">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure impedit soluta, suscipit quaerat assumenda architecto?
+                        </p>
+
+                        <btn type="button" class="btn btn-danger"
+                            data-bs-toggle="modal"
+                            data-bs-target="#FastAccessible" >Learn More</btn>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid bg-light text-dark my-5">
+    <div class="container">
+            
+    </div>
+</section>
 {% endblock %}

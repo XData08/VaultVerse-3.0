@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-light justify-content-center position-sticky">
+    <div class="container mx-1">
+        <a class="navbar-brand fw-bold" href="{{ url_for('Front.IndexPage') }}">
+            Vault<span class="text-danger">Verse</span>
+        </a>
+        <button class="navbar-toggler"
+                type="button" data-bs-toggle="collapse"
+                data-bs-target="#MyNavbar"> 
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="MyNavbar">
+            <ul class="navbar-nav me-auto my-1">
+                <li class="nav-item px-1">
+                    <a class="nav-link active" href="{{ url_for('Front.IndexPage') }}">Home</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link " href="{{ url_for('Front.ServicesPage') }}">Services</a>
+                </li>
+                <li class="nav-item px-1">
+                    <a class="nav-link " href="{{ url_for('Front.AboutPage') }}">About</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <ul class="navbar-nav my-1">
+                    <li class="nav-item px-1">
+                        <a class="nav-link" href="{{ url_for('Forms.LoginPage')}}">Sign in</a>
+                    </li>
+                    <li class="nav-item px-1">
+                        <a class="btn btn-outline-danger" href="{{ url_for('Forms.SignupPage')}}">Sign up</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
