@@ -10,12 +10,214 @@
 
 
 {% block body %}
-<section class="container-fluid div-image my-image">
+<section class="container-fluid div-image-1 my-image">
     <div class="div-overlay d-flex justify-content-center align-items-center">
         <div class="text-white text-center">
             <h1 class="title">About</h1>
-            <p class="pt-3">MaxxTechTips</p>
+            <p class="pt-3"><i class="uil uil-robot"></i> MaxxTechTips</p>
         </div>
     </div> 
+</section>
+
+<section class="container my-5 py-0 py-lg-3">
+    <div class="container-fluid py-3">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <h1 class="title fw-bold top-line">
+                    Our Story
+                </h1>
+                <p class="fs-5 pb-2">
+                    What? Why? How?
+                </p>
+            </div>
+            <div class="col-lg-7">
+                <p class="pb-2">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam qui accusamus tenetur aspernatur, eligendi veritatis vitae velit repellendus. Nobis asperiores quaerat impedit perspiciatis, a vitae architecto aliquam, corrupti possimus sed voluptates quisquam numquam quas! Dolor porro error reprehenderit assumenda earum.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus, expedita doloribus, molestias beatae nesciunt aliquam cum eius minima id tempora atque est error voluptates deserunt. In consectetur nostrum voluptatem fugiat inventore ex velit at error, quibusdam esse natus unde culpa cumque obcaecati consequuntur adipisci et. Voluptate accusamus provident voluptas debitis asperiores quidem quae consequatur nobis repellendus deleniti adipisci accusantium, dolorem facere officiis nostrum magnam nisi quibusdam voluptates unde doloremque dolore. Eius, sunt accusantium. Voluptatem nobis odio reiciendis illum ea?
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid my-5 bg-light">
+    <div class="container py-5">
+        <div class="text-center pb-3">
+            <h1 class="fw-bold">Developer Team</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, accusantium!</p>
+        </div>
+        <div class="row g-3">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
+                            class="rounded-circle mb-3 mt-2 w-25"
+                            alt=""/> 
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lirae Que Data</h5> 
+                        <h6 class="card-subtitle mb-3 text-muted">Project Manager</h6>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
+                            class="rounded-circle mb-3 mt-2 w-25"
+                            alt=""/> 
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bolder">Leonard Relacion</h5> 
+                        <h6 class="card-subtitle mb-3 text-muted">BackEnd Developer</h6>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
+                            class="rounded-circle mb-3 mt-2 w-25"
+                            alt=""/> 
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Maximille Gratia Pacis</h5> 
+                        <h6 class="card-subtitle mb-3 text-muted">FrontEnd Developer</h6>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
+                            class="rounded-circle mb-3 mt-2 w-25"
+                            alt=""/> 
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Shiela Mae Lepon</h5> 
+                        <h6 class="card-subtitle mb-3 text-muted">FrontEnd Developer</h6>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="container my-5 py-3">
+    <section class="container-fluid bg-light rounded p-3 px-1 p-lg-5">
+        <div class="mb-4">
+            <h1 class="fw-bold">FAQs</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, assumenda.</p>
+        </div>
+   
+        <div class="accordion accordion-flush" id="FAQsAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapseOne">
+                        Accordion Item #1    
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show"
+                    data-bs-parent="#FAQsAccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem numquam unde eum at officia similique inventore porro ducimus, eos eveniet non doloribus possimus asperiores et optio, rerum enim voluptates nulla? Nihil necessitatibus magnam provident corporis adipisci ullam voluptates porro harum odit ex soluta modi, dolorem veritatis quo doloremque a! Quaerat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo">
+                        Accordion Item #2    
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" 
+                    data-bs-parent="#FAQsAccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree">
+                        Accordion Item #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" 
+                    data-bs-parent="#FAQsAccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour">
+                        Accordion Item #4   
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" 
+                    data-bs-parent="#FAQsAccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" 
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive">
+                        Accordion Item #5   
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" 
+                    data-bs-parent="#FAQsAccordion">
+                    <div class="accordion-body">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 </section>
 {% endblock %}

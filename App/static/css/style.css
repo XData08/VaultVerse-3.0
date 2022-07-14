@@ -6,8 +6,13 @@
     width: 3rem
 }
 
-.div-image {
+.div-image-1 {
     background-image : url(../image/about_bg.jpg);
+    height: 60vh;
+}
+
+.div-image-2{
+    background-image : url(../image/circuit.jpg);
     height: 60vh;
 }
 
@@ -16,17 +21,43 @@
     background-repeat : no-repeat;
     background-position: center;
     background-size: cover;
+    margin: 0;
+    padding : 0;
 }
 
 .div-overlay{
     height: 100%;
-    width : 100%;
+    width : inherit;
     position: absolute;
+    overflow-x : hidden;
 }
 
+
+.color-overlay {
+    background-color: rgba(0, 0, 0, 0.50);
+    height: 100%;
+}
+
+h1.top-line {
+    position: relative;
+}
+h1.top-line::before {
+    content : "";
+    position: absolute;
+    height : 5px;
+    width : 150px;
+    background-color: #dc3545;
+    border-radius: 20px;
+    top: -20px;
+    left : 0;
+
+}
 @media screen and (max-width : 500px ){
     .title {
         font-size :2.5rem;
         margin-bottom: 1rem;
+    }
+    .div-image {
+        height : 100vh;
     }
 }
