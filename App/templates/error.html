@@ -14,7 +14,7 @@
     <div class="container-fluid shadow-sm bg-light py-5">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-6 col-sm-12 order-2 order-lg-1">
                     <h1 class="title fw-bold">
                         <i class="uil text-danger uil-exclamation-octagon"></i>Error 404
                     </h1> 
@@ -27,8 +27,9 @@
                         <a href="{{ url_for('Front.IndexPage') }}" class="btn btn-danger">Go Back</a>
                     {% endif %}
                 </div>
-                <div class="col-lg-6 col-sm-12">
-                    <img src="{{ url_for('static', filename='svg/Error404.svg') }}">
+                <div class="col-lg-6 col-sm-12 order-1 order-lg-2">
+                    <img src="{{ url_for('static', filename='svg/Error404.svg') }}"
+                    class="img-fluid" alt="">
                 </div>
             </div>
         </div>
