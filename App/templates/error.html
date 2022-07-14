@@ -10,7 +10,28 @@
 
 
 {% block body %}
-<div>
-    <h1>Error</h1>
-</div>
+<section class="container-fluid mt-5 pt-2">
+    <div class="container-fluid shadow-sm bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 col-sm-12">
+                    <h1 class="title fw-bold">
+                        <i class="uil text-danger uil-exclamation-octagon"></i>Error 404
+                    </h1> 
+                    <p class="lead py-3">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident praesentium fugit repellendus commodi esse? Voluptatibus fuga obcaecati ad temporibus eius, voluptate voluptates nam, quis perspiciatis similique a velit vitae impedit.
+                    </p>
+                    {% if verified %}
+                        <a href="{{ url_for('Dashboard.DashboardPage') }}" class="btn btn-danger">Go Back</a>
+                    {% else %}
+                        <a href="{{ url_for('Front.IndexPage') }}" class="btn btn-danger">Go Back</a>
+                    {% endif %}
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <img src="{{ url_for('static', filename='svg/Error404.svg') }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

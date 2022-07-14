@@ -6,4 +6,6 @@ Dashboard : Blueprint = Blueprint("Dashboard", __name__)
 
 @Dashboard.route("/dashboard")
 def DashboardPage() -> str:
-    return render_template("dashboard.html")
+    return render_template(
+        "dashboard.html"
+    )
