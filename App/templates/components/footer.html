@@ -1,5 +1,50 @@
-<footer class="container-fluid bg-dark text-white py-3" >
-    <div class="container">
-        &#169; MaxxTechTips
+<footer class="container-fluid bg-dark text-white py-4" >
+    <div class="container mt-3">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <img src="{{ url_for('static', filename='svg/vaultverse.svg') }}"
+                class="logo" >
+                <h5 class="fw-bold d-inline">ault<span class="text-danger">Verse</span></h5>
+                <div class="pt-2">
+                    <a href="#" class="d-block text-white text-decoration-none">
+                        <i class="uil uil-envelope-alt "></i> VaultVerse.Desk4@gmail.com
+                    </a>
+                    <a href="#" class="d-block text-white text-decoration-none">
+                        <i class="uil uil-phone "></i> +639760292633
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="fw-bold">Navigation</h5>
+                <div class="pt-2">
+                    <a href="{{ url_for('Front.IndexPage') }}" class="d-block text-white text-decoration-none">Home</a>
+                    <a href="{{ url_for('Front.ServicesPage') }}" class="d-block text-white text-decoration-none">Services</a>
+                    <a href="{{ url_for('Front.AboutPage') }}" class="d-block text-white text-decoration-none">About</a>
+                    <a href="{{ url_for('Forms.SignupPage') }}" class="d-block text-white text-decoration-none">Sign Up</a>
+                    <a href="{{ url_for('Forms.LoginPage') }}" class="d-block text-white text-decoration-none">Sign In</a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="fw-bold">Address</h5>
+                <div class="pt-2">
+                    <a href="#" class="d-block text-white text-decoration-none">Cebu City</a>
+                    <a href="#" class="d-block text-white text-decoration-none">Cebu, 6000</a>
+                    <a href="#" class="d-block text-white text-decoration-none">vaultverse.herokuapp.com</a>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="fw-bold">Contact Us</h5>
+                <div class="pt-2">
+                    <a href="#" class="d-block text-white text-decoration-none">dranoelnoicaler@gmail.com</a>
+                    <a href="#" class="d-block text-white text-decoration-none">liradata59@gmail.com</a>
+                    <a href="#" class="d-block text-white text-decoration-none">maximillegratia@gmail.com</a>
+                    <a href="#" class="d-block text-white text-decoration-none">shiela.mlepon@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <p class="text-center pt-4 text-secondary">Copyright &#169; 2022 MaxxTechTips</p>
     </div>
 </footer>
+<!-- <div class="container">
+    &#169; MaxxTechTips
+</div> -->
