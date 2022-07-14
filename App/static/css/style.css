@@ -32,7 +32,6 @@
     overflow-x : hidden;
 }
 
-
 .color-overlay {
     background-color: rgba(0, 0, 0, 0.50);
     height: 100%;
@@ -57,7 +56,6 @@ h1.top-line::before {
         font-size :2.5rem;
         margin-bottom: 1rem;
     }
-    .div-image {
-        height : 100vh;
-    }
+    .div-image-1 { height : 100vh; }
+    .div-image-2 { height : 100vh; }
 }
