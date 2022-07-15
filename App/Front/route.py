@@ -29,6 +29,6 @@ def AboutPage() -> str:
 def ErrorPage(path, verified=False) -> str:
     return render_template(
         "error.html",
-        error=True, 
+        isFooterClose=True, 
         verified=verified
     )

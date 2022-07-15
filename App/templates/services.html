@@ -30,7 +30,7 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore ea enim quaerat labore fugiat corrupti debitis reprehenderit porro saepe quo dicta repudiandae officiis libero ipsum sequi, placeat dolore in voluptates voluptatem perferendis cumque at veritatis. Neque officiis, nam autem placeat quos, commodi ratione id ab rerum libero, perferendis in accusamus.
                 </p>
-                <a href="#" class="btn btn-danger mt-4">Join Now!</a>
+                <a href="#" class="btn btn-danger mt-4" href="{{ url_for('Forms.SignupPage') }}">Join Now!</a>
             </div>  
             <div class="col-sm-12 col-lg-6 order-1 order-lg-2">
                 <img src="{{ url_for('static', filename='svg/Homepage3.svg') }}"
@@ -45,7 +45,7 @@
     <div class="container">
         <div class="row g-3">
             <div class="col-sm-6 col-lg-3">
-                <div class="card ">
+                <div class="card scale-image">
                     <img src="{{ url_for('static', filename='image/satisfaction.png') }}"
                         class="card-img-top w-25 mx-auto py-3 mt-3"> 
                     <div class="card-body">
@@ -57,7 +57,7 @@
                 </div>
             </div> 
             <div class="col-sm-6 col-lg-3">
-                <div class="card">
+                <div class="card scale-image">
                     <img src="{{ url_for('static', filename='image/security.png') }}"
                         class="card-img-top w-25 mx-auto py-3 mt-3">  
                     <div class="card-body">
@@ -69,7 +69,7 @@
                 </div>
             </div> 
             <div class="col-sm-6 col-lg-3">
-                <div class="card">
+                <div class="card scale-image">
                     <img src="{{ url_for('static', filename='image/overload.png') }}"
                         class="card-img-top w-25 mx-auto py-3 mt-3"> 
                     <div class="card-body">
@@ -81,7 +81,7 @@
                 </div>
             </div> 
             <div class="col-sm-6 col-lg-3">
-                <div class="card ">
+                <div class="card scale-image">
                     <img src="{{ url_for('static', filename='image/technical-support.png') }}"
                         class="card-img-top w-25 mx-auto py-3 mt-3"> 
                     <div class="card-body">

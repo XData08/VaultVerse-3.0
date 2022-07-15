@@ -10,7 +10,52 @@
 
 
 {% block body %}
-<div>
-    <h1>GI KAPOY NAKO GUYS!! SORRY KAAYO!!</h1>
-</div>
+<section class="container-fluid mt-lg-5">
+    <div class="container pt-lg-5">
+
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="card w-75 border-light custom-shadow">
+                <div class="row g-0">
+                    <div class="col-lg-6 bg-light p-5">
+                        <div class="d-flex justify-content-center align-items-center"
+                        style="width : 100%; height : 100%;">
+                            <img src="{{ url_for('static', filename='svg/login.svg') }}"  alt="" class="img-fluid rounded-start">
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-6 p-lg-5">
+                        <div class="card-body"> 
+                            <h1 class="card-title mb-lg-4 fw-bold">
+                                Sign <span class="text-danger">In</span>
+                            </h1>
+                            <form method="POST">
+                                <div class="mb-lg-4">
+                                    <label class="form-label ">Enter Email Address: </label>
+                                    <input type="email" class="form-control" placeholder="Email Address">
+                                </div>
+                                <div class="mb-lg-0">
+                                    <label class="form-label ">Enter Password: </label>
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+
+                                <div class="text-end mb-lg-4 mt-lg-2">
+                                    <a href="{{ url_for('Forms.VerificationPage') }}" class="nav-link text-muted">Forgot Password?</a>
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-danger w-75">Sign In</button>
+
+                                </div>
+                            </form>
+                            <p class="text-center py-2">
+                                Already have an Account?
+                                <a class="text-danger" href="{{ url_for('Forms.SignupPage') }}">Sign Up</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
