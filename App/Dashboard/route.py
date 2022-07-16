@@ -7,6 +7,6 @@ Dashboard : Blueprint = Blueprint("Dashboard", __name__)
 @Dashboard.route("/vaultverse-dashboard/<string:FullName>")
 def DashboardPage(FullName : str) -> str:
     return render_template(
-        "dashboard.html",
+        "user/dashboard.html",
         FullName = FullName
     )
