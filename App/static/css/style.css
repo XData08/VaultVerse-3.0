@@ -106,3 +106,9 @@ h1.top-line::before {
     .custom-shadow { box-shadow : none; }
     .custom-title { font-size: 3rem; }
 }
+
+@media screen and (max-height : 700px){
+    .custom-container {
+        height: 90vh;
+    }
+}

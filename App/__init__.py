@@ -1,7 +1,8 @@
 from flask import Flask
 from App.config import Config
 
-def create_app(class_config = Config) -> Flask:
+
+def create_app(class_config : Config = Config) -> Flask:
 
     app : Flask = Flask(__name__)
     app.config.from_object(class_config)
