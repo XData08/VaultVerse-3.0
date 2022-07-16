@@ -75,6 +75,26 @@ h1.top-line::before {
     box-shadow : 0 3px 10px 0 rgba(0, 0, 0, 0.15);
 }
 
+.custom-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-width {
+    width : 50vw;
+}
+
+.custom-width-2 {
+    width : 100%;
+    height : 100%;
+}
+
+@media screen and (max-width : 1280px){
+    .custom-width { width : 70vw; };
+}
+
 @media screen and (max-width : 500px ){
     .title {
         font-size :2.5rem;
@@ -82,4 +102,7 @@ h1.top-line::before {
     }
     .div-image-1 { height : 95vh; }
     .div-image-2 { height : 95vh; }
+    .custom-width { width : 100vw; }    
+    .custom-shadow { box-shadow : none; }
+    .custom-title { font-size: 3rem; }
 }
