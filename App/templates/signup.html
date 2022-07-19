@@ -15,30 +15,35 @@
 
         <div class="d-flex justify-content-center align-items-center">
             <div class="card custom-width border-light custom-shadow">
+
                 <div class="row g-0">
-                    <div class="col-md-6 p-md-3 p-0 p-lg-4">
+                    <div class="col-md-6 py-5 px-3 py-sm-5 px-sm-4 p-md-0 py-lg-3 px-lg-2 py-xl-4 px-xl-4 px-xxl-5 my-auto">
                         <div class="card-body"> 
-                            <h1 class="card-title mb-4 mb-md-4 fw-bold custom-title">
+                            <h1 class="card-title mb-5 mb-md-4 fw-bold custom-title">
                                 Sign <span class="text-danger">Up</span>
                             </h1>
                             <form method="POST">
                                 <div class="mb-4 mb-md-3">
-                                    <label class="form-label ">Enter Full Name: </label>
-                                    <input type="email" class="form-control" placeholder="Full Name">
+                                    <label class="form-label ">Enter Username: </label>
+                                    <input type="text" class="form-control" placeholder="Username"
+                                    name="userName" value="">
                                 </div>
                                 <div class="mb-4 mb-md-3">
                                     <label class="form-label ">Enter Email Address: </label>
-                                    <input type="email" class="form-control" placeholder="Email Address">
+                                    <input type="email" class="form-control" placeholder="Email Address"
+                                    name="emailAddress" value="">
                                 </div>
                                 <div class="mb-4 mb-md-3">
                                     <label class="form-label ">Enter Password: </label>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" placeholder="Password"
+                                    name="password" value="">
                                 </div>
                                 <div class="mb-5 mb-md-4">
                                     <label class="form-label ">Re-Enter Password: </label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password">
+                                    <input type="password" class="form-control" placeholder="Confirm Password"
+                                    name="confirmPassword" value="">
                                 </div>
-
+                
                                 <div class="text-center">
                                     <button class="btn btn-danger w-75">Sign In</button>
                                 </div>
@@ -48,7 +53,6 @@
                                 <a class="text-danger" href="{{ url_for('Forms.SignupPage') }}">Sign Up</a>
                             </p>
                         </div>
-
                     </div>
                     <div class="d-none d-md-block col-sm-0 col-md-6 bg-light p-5">
                         <div class="d-flex justify-content-center align-items-center custom-width-2">
@@ -56,6 +60,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>

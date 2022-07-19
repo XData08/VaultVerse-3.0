@@ -91,6 +91,12 @@ h1.top-line::before {
     height : 100%;
 }
 
+.custom-center {
+    display : flex;
+    justify-content: center;
+    align-items : center;
+}
+
 @media screen and (max-width : 1280px){
     .custom-width { width : 70vw; };
 }
@@ -104,6 +110,9 @@ h1.top-line::before {
     .div-image-2 { height : 95vh; }
     .custom-width { width : 100vw; }    
     .custom-shadow { box-shadow : none; }
+}
+
+@media screen and (max-width : 768px){
     .custom-title { font-size: 3rem; }
 }
 
