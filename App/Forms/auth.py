@@ -4,8 +4,8 @@ from flask import (
     flash
 )
 from flask_login import (
-    login_required, login_user, logout_user,
-    login_remembered
+    login_required, login_user, 
+    logout_user,
 )
 from flask_mail import Message
 from werkzeug.security import (
@@ -25,37 +25,40 @@ VERIFICATION_CODE : str = ""
 @Forms.route("/vaultverse-signin", methods=["POST", "GET"])
 def LoginPage() -> str:
     global VERIFICATION_CODE
-    if request.method == "POST":
-        emailAddress = request.form.get("emailAddress")
-        password = request.form.get("password")
+    try:
+        if request.method == "POST":
+            emailAddress = request.form.get("emailAddress")
+            password = request.form.get("password")
 
-        _emailAddress = User.query.filter_by(emailAddress = emailAddress).first()
+            _emailAddress = User.query.filter_by(emailAddress = emailAddress).first()
 
-        if emailAddress != "" or password != "":
-            if len(emailAddress) < 6 or emailAddress == "":
-                flash("Invalid Email Address", "warning")
-            elif len(password) < 6 or password == "":
-                flash("Invalid Password", "warning")
-            else:
-                if _emailAddress:
-                    if check_password_hash(_emailAddress.password, password):
-                        if VERIFICATION_CODE == "":
-                            VERIFICATION_CODE = GenerateCode()
-                        msg = Message(
-                            "Verification Code",
-                            sender = EMAIL,
-                            html = render_template("components/message.html", code = VERIFICATION_CODE),
-                            recipients=[emailAddress]
-                        )
-                        mail.send(msg)
-                        login_user(_emailAddress, remember=True)
-                        return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
-                    else:
-                        flash("Password does not match" , "error")
+            if emailAddress != "" or password != "":
+                if len(emailAddress) < 6 or emailAddress == "":
+                    flash("Invalid Email Address", "warning")
+                elif len(password) < 6 or password == "":
+                    flash("Invalid Password", "warning")
                 else:
-                    flash("User does not exist" , "error")
-        else:
-            flash("Invalid Email Address and Password", "error")
+                    if _emailAddress:
+                        if check_password_hash(_emailAddress.password, password):
+                            if VERIFICATION_CODE == "":
+                                VERIFICATION_CODE = GenerateCode()
+                            msg = Message(
+                                "Verification Code",
+                                sender = EMAIL,
+                                html = render_template("components/message.html", code = VERIFICATION_CODE, UserName=_emailAddress.userName),
+                                recipients=[emailAddress]
+                            )
+                            mail.send(msg)
+                            login_user(_emailAddress, remember=True)
+                            return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
+                        else:
+                            flash("Password does not match" , "error")
+                    else:
+                        flash("User does not exist" , "error")
+            else:
+                flash("Invalid Email Address and Password", "error")
+    except:
+        return redirect(url_for('Front.ErrorPage', path="/error/"))
                 
     return render_template(
         "login.html",
@@ -67,55 +70,58 @@ def LoginPage() -> str:
 def SignupPage() -> str:
     global VERIFICATION_CODE
 
-    if request.method == "POST":
-        userName = request.form.get("userName")
-        emailAddress = request.form.get("emailAddress")
-        password = request.form.get("password")
-        confirmPassword = request.form.get("confirmPassword")
+    try:
+        if request.method == "POST":
+            userName = request.form.get("userName")
+            emailAddress = request.form.get("emailAddress")
+            password = request.form.get("password")
+            confirmPassword = request.form.get("confirmPassword")
 
-        _userName = User.query.filter_by(userName = userName).first()
-        _emailAddress = User.query.filter_by(emailAddress = emailAddress).first()
-        
-        if userName != "" or emailAddress != "" or password != "" or confirmPassword != "":
-            if _userName:
-                flash("userName already exist", "warning")
-            elif _emailAddress:
-                flash("Email Address already exist", "warning")
-            elif len(userName) < 5 or userName == "":
-                flash("Invalid Username", "warning") 
-            elif len(emailAddress) < 8 or emailAddress == "":
-                flash("Invalid Email Address", "warning")
-            else:  
-                if password == "" or confirmPassword == "":
-                    flash("Invalid Password", "warning")
-                else:
-                    if not len(password) < 6:
-                        if password == confirmPassword:
-                            if VERIFICATION_CODE == "":
-                                VERIFICATION_CODE = GenerateCode()
-                            new_user = User(
-                                userName = userName,
-                                emailAddress = emailAddress,
-                                password = generate_password_hash(password, "sha256")
-                            )
-                            db.session.add(new_user)
-                            db.session.commit()
-
-                            msg = Message(
-                                "Verification Code",
-                                sender = EMAIL,
-                                html = render_template("components/message.html", code = VERIFICATION_CODE),
-                                recipients=[emailAddress]
-                            )
-                            mail.send(msg)
-                            login_user(new_user)
-                            return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
-                        else:
-                            flash("Password does not match", "error")
+            _userName = User.query.filter_by(userName = userName).first()
+            _emailAddress = User.query.filter_by(emailAddress = emailAddress).first()
+            
+            if userName != "" or emailAddress != "" or password != "" or confirmPassword != "":
+                if _userName:
+                    flash("userName already exist", "warning")
+                elif _emailAddress:
+                    flash("Email Address already exist", "warning")
+                elif len(userName) < 5 or userName == "":
+                    flash("Invalid Username", "warning") 
+                elif len(emailAddress) < 8 or emailAddress == "":
+                    flash("Invalid Email Address", "warning")
+                else:  
+                    if password == "" or confirmPassword == "":
+                        flash("Invalid Password", "warning")
                     else:
-                        flash("Weak password", "warning")
-        else:
-            flash("Invalid Form is Empty", "error")
+                        if not len(password) < 6:
+                            if password == confirmPassword:
+                                if VERIFICATION_CODE == "":
+                                    VERIFICATION_CODE = GenerateCode()
+                                new_user = User(
+                                    userName = userName,
+                                    emailAddress = emailAddress,
+                                    password = generate_password_hash(password, "sha256")
+                                )
+                                db.session.add(new_user)
+                                db.session.commit()
+
+                                msg = Message(
+                                    "Verification Code",
+                                    sender = EMAIL,
+                                    html = render_template("components/message.html", code = VERIFICATION_CODE, UserName=userName),
+                                    recipients=[emailAddress]
+                                )
+                                mail.send(msg)
+                                login_user(new_user)
+                                return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
+                            else:
+                                flash("Password does not match", "error")
+                        else:
+                            flash("Weak password", "warning")
+            else:
+                flash("Invalid Form is Empty", "error")
+    except:
+        return redirect(url_for('Front.ErrorPage', path="/error/"))
 
     return render_template(
         "signup.html",
@@ -134,24 +140,31 @@ def LogoutPage() -> str:
 @login_required
 def VerificationPage(EmailAddress : str) -> str:
     global VERIFICATION_CODE
-    
-    if request.method == "POST":
-      
-        user = User.query.filter_by(emailAddress = EmailAddress).first()
-        userCode = ""
 
-        for i in range(1, 7):
-            userCode += request.form.get(f"code{i}")
+    try:
+        if request.method == "POST":
+        
+            user = User.query.filter_by(emailAddress = EmailAddress).first()
+            userCode : str = ""
 
-        if userCode == VERIFICATION_CODE:
-            VERIFICATION_CODE = ""
-            return redirect(url_for("Dashboard.DashboardPage", UserName=user.userName))
-        else:
-            flash("Does not Match with the Verification Code", "warning")
+            for i in range(1, 7):
+                userCode += request.form.get(f"code{i}")
+
+            if userCode == VERIFICATION_CODE:
+                VERIFICATION_CODE = ""
+                return redirect(url_for("Dashboard.DashboardPage", 
+                    UserName=user.userName, code=userCode))
+            else:
+                flash("Does not Match with the Verification Code", "warning")
+
+    except:
+        return redirect(url_for('Front.ErrorPage', path="/error/"))
+
 
     return render_template(
         "verification.html",
         isFooterClose  = True,
+        isNavigationClose = True,
         EmailAddress = EmailAddress
     )
 
@@ -161,5 +174,6 @@ def ForgotPasswordPage() -> str:
 
     return render_template(
         "forgotpassword.html",
-        isFooterClose  = True
+        isFooterClose  = True,
+        isNavigationClose = True
     )

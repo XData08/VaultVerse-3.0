@@ -30,5 +30,6 @@ def ErrorPage(path, verified=False) -> str:
     return render_template(
         "error.html",
         isFooterClose=True, 
+        isNavigationClose = True, 
         verified=verified
     )
