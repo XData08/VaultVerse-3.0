@@ -76,12 +76,20 @@ h1.top-line::before {
 }
 
 .custom-container {
+    width: 100%;
+    position: relative;
     height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.custom-position{
+    position: absolute;
+    top: 4rem;
+    width: 100%;
+
+}
 .custom-width {
     width : 50vw;
 }
@@ -116,8 +124,12 @@ h1.top-line::before {
     .custom-title { font-size: 3rem; }
 }
 
+@media screen and (max-width : 575px){
+    .custom-position{ top : 3.5rem; }
+}
+
 @media screen and (max-height : 700px){
     .custom-container {
-        height: 90vh;
+        height: 95vh;
     }
 }

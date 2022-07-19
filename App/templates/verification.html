@@ -11,6 +11,17 @@
 
 {% block body %}
 <div>
-    <h1>Hello World Verification</h1>
+    <form method="POST">
+        <div class="">
+            <input type="text" maxlength="1" name="code1" value="">
+            <input type="text" maxlength="1" name="code2" value="">
+            <input type="text" maxlength="1" name="code3" value="">
+            <input type="text" maxlength="1" name="code4" value="">
+            <input type="text" maxlength="1" name="code5" value="">
+            <input type="text" maxlength="1" name="code6" value="">
+        </div>
+
+        <input type="submit" value="submit" class="btn btn-danger">
+    </form>
 </div>
 {% endblock %}
