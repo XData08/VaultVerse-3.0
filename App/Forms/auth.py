@@ -39,7 +39,8 @@ def LoginPage() -> str:
             else:
                 if _emailAddress:
                     if check_password_hash(_emailAddress.password, password):
-                        VERIFICATION_CODE = GenerateCode()
+                        if VERIFICATION_CODE == "":
+                            VERIFICATION_CODE = GenerateCode()
                         msg = Message(
                             "Verification Code",
                             sender = EMAIL,
@@ -90,7 +91,8 @@ def SignupPage() -> str:
                 else:
                     if not len(password) < 6:
                         if password == confirmPassword:
-                            VERIFICATION_CODE = GenerateCode()
+                            if VERIFICATION_CODE == "":
+                                VERIFICATION_CODE = GenerateCode()
                             new_user = User(
                                 userName = userName,
                                 emailAddress = emailAddress,
@@ -131,6 +133,7 @@ def LogoutPage() -> str:
 @Forms.route("/vaultverse-verification/<string:EmailAddress>", methods=["POST", "GET"])
 @login_required
 def VerificationPage(EmailAddress : str) -> str:
+    global VERIFICATION_CODE
     
     if request.method == "POST":
       
@@ -141,6 +144,7 @@ def VerificationPage(EmailAddress : str) -> str:
             userCode += request.form.get(f"code{i}")
 
         if userCode == VERIFICATION_CODE:
+            VERIFICATION_CODE = ""
             return redirect(url_for("Dashboard.DashboardPage", UserName=user.userName))
         else:
             flash("Does not Match with the Verification Code", "warning")
