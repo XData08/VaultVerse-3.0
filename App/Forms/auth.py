@@ -25,7 +25,6 @@ VERIFICATION_CODE : str = ""
 @Forms.route("/vaultverse-signin", methods=["POST", "GET"])
 def LoginPage() -> str:
     global VERIFICATION_CODE
-
     if request.method == "POST":
         emailAddress = request.form.get("emailAddress")
         password = request.form.get("password")
