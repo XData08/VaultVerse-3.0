@@ -19,12 +19,12 @@ from App.config import EMAIL
 
 
 Forms : Blueprint = Blueprint("Forms", __name__)
-VERIFICATION_CODE : str = GenerateCode()
-VERIFIED_CODE : str = VERIFICATION_CODE
+VERIFICATION_CODE : str = ""
 
 
 @Forms.route("/vaultverse-signin", methods=["POST", "GET"])
 def LoginPage() -> str:
+    global VERIFICATION_CODE
 
     if request.method == "POST":
         emailAddress = request.form.get("emailAddress")
@@ -40,10 +40,11 @@ def LoginPage() -> str:
             else:
                 if _emailAddress:
                     if check_password_hash(_emailAddress.password, password):
+                        VERIFICATION_CODE = GenerateCode()
                         msg = Message(
                             "Verification Code",
                             sender = EMAIL,
-                            html = render_template("components/message.html", code = VERIFIED_CODE),
+                            html = render_template("components/message.html", code = VERIFICATION_CODE),
                             recipients=[emailAddress]
                         )
                         mail.send(msg)
@@ -64,6 +65,7 @@ def LoginPage() -> str:
 
 @Forms.route("/vaultverse-signup", methods=["POST", "GET"])
 def SignupPage() -> str:
+    global VERIFICATION_CODE
 
     if request.method == "POST":
         userName = request.form.get("userName")
@@ -89,6 +91,7 @@ def SignupPage() -> str:
                 else:
                     if not len(password) < 6:
                         if password == confirmPassword:
+                            VERIFICATION_CODE = GenerateCode()
                             new_user = User(
                                 userName = userName,
                                 emailAddress = emailAddress,
@@ -100,7 +103,7 @@ def SignupPage() -> str:
                             msg = Message(
                                 "Verification Code",
                                 sender = EMAIL,
-                                html = render_template("components/message.html", code = VERIFIED_CODE),
+                                html = render_template("components/message.html", code = VERIFICATION_CODE),
                                 recipients=[emailAddress]
                             )
                             mail.send(msg)
@@ -138,7 +141,7 @@ def VerificationPage(EmailAddress : str) -> str:
         for i in range(1, 7):
             userCode += request.form.get(f"code{i}")
 
-        if userCode == VERIFIED_CODE:
+        if userCode == VERIFICATION_CODE:
             return redirect(url_for("Dashboard.DashboardPage", UserName=user.userName))
         else:
             flash("Does not Match with the Verification Code", "warning")
