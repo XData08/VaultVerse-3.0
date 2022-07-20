@@ -19,10 +19,18 @@
                         <i class="uil text-danger uil-exclamation-octagon"></i>Error 404
                     </h1> 
                     <p class="lead py-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident praesentium fugit repellendus commodi esse? Voluptatibus fuga obcaecati ad temporibus eius, voluptate voluptates nam, quis perspiciatis similique a velit vitae impedit.
+                        {{ errmsg }}
                     </p>
-                    {% if verified %}
-                        <a href="{{ url_for('Dashboard.DashboardPage') }}" class="btn btn-danger">Go Back</a>
+
+                    {% if current_user.is_authenticated %}
+                        {% if verified == 'True' %}
+                            
+                            <a href="{{ url_for('Dashboard.DashboardPage', UserName=current_user.userName, code=code) }}" class="btn btn-danger">Go Back</a>
+
+                        {% else %}
+                            
+                            <a href="{{ url_for('Forms.VerificationPage', EmailAddress=current_user.emailAddress ) }}" class="btn btn-danger">Go Back</a>
+                        {% endif %}
                     {% else %}
                         <a href="{{ url_for('Front.IndexPage') }}" class="btn btn-danger">Go Back</a>
                     {% endif %}

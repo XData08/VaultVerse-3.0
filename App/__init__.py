@@ -1,4 +1,3 @@
-from cmath import log
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
@@ -27,7 +26,7 @@ def create_app(class_config : Config = Config) -> Flask:
     from App.Front.route import Front
     from App.Dashboard.route import Dashboard
     from App.Forms.auth import Forms
-    from App.models import User, Verfication
+    from App.models import User
 
 
     app.register_blueprint(Front, url_prefix="/")

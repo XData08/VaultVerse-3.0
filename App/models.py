@@ -1,5 +1,3 @@
-import email
-from multiprocessing.sharedctypes import Value
 from flask_login import UserMixin
 from App import db, login_manager
 
@@ -27,11 +25,13 @@ class User(db.Model, UserMixin):
     galleryNo = db.Column(db.Integer)
     fileNo = db.Column(db.Integer)
 
-    verification = db.relationship("Verfication")
+    Verification = db.relationship("Verification")
     credentialAccount = db.relationship("CredentialAccount")
     credentialAddress = db.relationship("CredentialAddress")
-    CredentialBankAccount = db.relationship("CredentialBankAccount")
-    CredentialDriversLicense = db.relationship("CredentialDriversLicense")
+    credentialBankAccount = db.relationship("CredentialBankAccount")
+    credentialDriversLicense = db.relationship("CredentialDriversLicense")
+    recordLecture = db.relationship("RecordLecture")
+    # recordList = db.relationship("RecordList")
 
     def __init__(self, userName, emailAddress, password):
         self.userName = userName
@@ -46,7 +46,7 @@ class User(db.Model, UserMixin):
         return "<Users %r>"%self.userName
 
 
-class Verfication(db.Model):
+class Verification(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(200))
@@ -55,6 +55,7 @@ class Verfication(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
 
+# Start Content : @Credential 
 class CredentialAccount(db.Model):
     
     id = db.Column(db.Integer, primary_key = True)
@@ -103,6 +104,7 @@ class CredentialBankAccount(db.Model):
 
 
 class CredentialDriversLicense(db.Model):
+
     id = db.Column(db.Integer, primary_key = True)
     privateKey = db.Column(db.Integer)
     title = db.Column(db.String(150), unique=True)
@@ -119,3 +121,42 @@ class CredentialDriversLicense(db.Model):
     date = db.Column(db.String(50))
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+# End Content : @Credential 
+
+
+# Start Content : @Record 
+class RecordLecture(db.Model):
+
+    id = db.Column(db.Integer, primary_key = True)
+    privateKey = db.Column(db.Integer)
+    title = db.Column(db.String(150), unique=True)
+    lectureSubject = db.Column(db.String(150))
+    lectureLesson = db.Column(db.String(150))
+    lectureNotes = db.Column(db.Text)
+    date = db.Column(db.String(50))
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+
+# class RecordList(db.Model):
+    
+#     id = db.Column(db.Integer, primary_key = True)
+#     privateKey = db.Column(db.Integer)
+#     title = db.Column(db.String(150), unique=True)
+#     date = db.Column(db.String(50))
+
+#     todolist = db.relationship("ToDoList")
+#     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    
+
+# class ToDoList(db.Model):
+    
+#     id = db.Column(db.Integer, primary_key = True)
+#     text = db.Column(db.String(250))
+
+#     recordlist_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+
+# End Content : @Record 
+

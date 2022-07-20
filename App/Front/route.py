@@ -25,11 +25,16 @@ def AboutPage() -> str:
     )
 
 
-@Front.route("/<path:path>/")
-def ErrorPage(path, verified=False) -> str:
+@Front.route("/<path:path>/<string:errmsg>/<string:verified>/<int:code>")
+@Front.route("/<path:path>/<string:errmsg>/<string:verified>")
+@Front.route("/<path:path>/<string:errmsg>")
+@Front.route("/<path:path>")
+def ErrorPage(path, errmsg : str, verified : str = "False", code : int = 0) -> str:
     return render_template(
         "error.html",
         isFooterClose=True, 
         isNavigationClose = True, 
-        verified=verified
+        verified=verified,
+        errmsg = errmsg,
+        code=code
     )

@@ -10,18 +10,57 @@
 
 
 {% block body %}
-<div>
-    <form method="POST">
-        <div class="">
-            <input type="text" maxlength="1" name="code1" value="">
-            <input type="text" maxlength="1" name="code2" value="">
-            <input type="text" maxlength="1" name="code3" value="">
-            <input type="text" maxlength="1" name="code4" value="">
-            <input type="text" maxlength="1" name="code5" value="">
-            <input type="text" maxlength="1" name="code6" value="">
-        </div>
+<section class="custom-container">
+    <div class="container">
 
-        <input type="submit" value="submit" class="btn btn-danger">
-    </form>
-</div>
-{% endblock %}
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="card custom-width border-light custom-shadow">
+
+                <div class="row g-0">
+                    <div class="d-none d-md-block col-sm-0 col-md-6 bg-light p-5">
+                        <div class="d-flex justify-content-center align-items-center custom-width-2">
+                            <img src="{{ url_for('static', filename='svg/verification.svg') }}"  alt="" class="img-fluid rounded-start custom-width-2">
+                        </div>
+                    </div>
+                    <div class="col-md-6 py-5 px-3 py-sm-5 px-sm-4 p-md-0 py-lg-3 px-lg-2 py-xl-4 px-xl-4 px-xxl-5 my-auto">
+                        <div class="card-body"> 
+                            <div class="mb-5 mb-md-4 ">
+                                <h1 class="card-title fw-bold custom-title">
+                                    <span class="text-danger">OTP </span>Verification
+                                </h1>
+                                <p>Please enter the 6-digit verification code. </p>
+                            </div>
+                            
+                            <form method="POST">
+                                <div class="my-5 text-center">
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code1" value="" >
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code2" value="" >
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code3" value="" >
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code4" value="" >
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code5" value="" >
+                                    <input type="text" class="form-control vinput mx-0" placeholder="X"
+                                    maxlength="1" name="code6" value="" >
+                                </div>
+                
+                                <div class="text-center">
+                                    <button class="btn btn-danger w-75">Submit</button>
+                                </div>
+                            </form>
+                            <p class="text-center py-2">
+                                Did not receive the code?
+                                <a class="text-danger" href="{{ url_for('Forms.ResendEmail') }}">Resend</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

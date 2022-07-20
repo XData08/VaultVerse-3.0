@@ -6,9 +6,8 @@ from flask_login import (
     login_required, 
     current_user
 )
-from flask_mail import Message
 from App.config import EMAIL, PASSWORD
-from App import db, mail
+from App import db
 
 Dashboard : Blueprint = Blueprint("Dashboard", __name__)
 
@@ -18,17 +17,14 @@ Dashboard : Blueprint = Blueprint("Dashboard", __name__)
 def DashboardPage(UserName : str, code : int) -> str:
 
     if request.method == "POST":
-        msg = Message(
-            "Hello",
-            sender = EMAIL,
-            html = render_template("components/message.html", code="980234", UserName="WannaCry081"),
-            recipients=["liraedata59@gmail.com"]
-        )
-        mail.send(msg)
+        try:
+            x = 23 
+            x /= 0
+        except Exception as e:
+            return redirect(url_for('Front.ErrorPage', path="/error/", errmsg=e, verified="True", code=code))
 
 
     return render_template(
         "user/dashboard.html",
-        UserName = UserName,
-        user = current_user
+        UserName = UserName
     )

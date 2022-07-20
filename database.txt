@@ -96,24 +96,33 @@ CREATE TABLE CREDENTIAL_DRIVERS_LICENSE(
 -------------------------------------------------------
 
 CREATE TABLE RECORD_LECTURE(
-    PRIVATE_KEY         INT,
-    TITLE		VARCHAR(50)     NOT NULL,
-    LECTURE_SUBJECT		VARCHAR(100),
-    LECTURE_LESSON		VARCHAR(100),
-    LECTURE_NOTES		TEXT,
-    DATE_ADDED        DATE
+    ID                          INT PRIMARY_KEY,
+    PRIVATE_KEY                 INT,
+    TITLE		                VARCHAR(150)     NOT NULL,
+    LECTURE_SUBJECT		        VARCHAR(150),
+    LECTURE_LESSON		        VARCHAR(150),
+    LECTURE_NOTES		        TEXT,
+    DATE_ADDED                  DATE
 );
 
 CREATE TABLE RECORD_TO_DO_LIST(
-    PRIVATE_KEY          INT,
-    TITLE		VARCHAR(50),
-    TO_DO_LIST_NOTES		TEXT,
-    DATE_ADDED         DATE
+    ID                          INT PRIMARY_KEY,
+    PRIVATE_KEY                 INT,
+    TITLE		                VARCHAR(150),
+    DATE_ADDED                  DATE,
+
+    FOREIGN KEY (TODOLIST.ID) REFERENCES (TODOLIST.ID)
+);
+
+CREATE TABLE TODOLIST(
+    ID                          INT PRIMARY_KEY,
+    LIST                        VARCHAR(300)
 );
 
 CREATE TABLE RECORD_SCHEDULE(
-    PRIVATE_KEY                    INT,
-    TITLE					VARCHAR(50)     NOT NULL,
+    ID                              INT PRIMARY_KEY,
+    PRIVATE_KEY                     INT,
+    TITLE					        VARCHAR(150)     NOT NULL,
     SCHEDULE_MONDAY_SCHEDULE		VARCHAR(100),
     SCHEDULE_TUESDAY_SCHEDULE		VARCHAR(100),
     SCHEDULE_WEDNESDAY_SCHEDULE		VARCHAR(100),
@@ -132,43 +141,6 @@ CREATE TABLE RECORD_COLLABORATION(
     COLLABORATION_NOTES			TEXT,
     DATE_ADDED          DATE
 );
-
-CREATE TABLE GALLERY_IMAGE(
-    PRIVATE_KEY           INT,
-    TITLE			VARCHAR(50)     NOT NULL,
-    IMAGE_NOTES			TEXT,
-    DATE_ADDED          DATE
-);
-
-CREATE TABLE GALLERY_VIDEO(
-    PRIVATE_KEY           INT,
-    TITLE			VARCHAR(50)     NOT NULL,
-    VIDEO_NOTES			TEXT,
-    DATE_ADDED          DATE
-);
-
-CREATE TABLE DOCUMENT_ZIP(
-    PRIVATE_KEY             INT,
-    TITLE			VARCHAR(50)     NOT NULL,
-    ZIP_NOTES			TEXT,
-    DATE_ADDED            DATE
-);
-
-CREATE TABLE DOCUMENT_FILE(
-    PRIVATE_KEY            INT,
-    TITLE			VARCHAR(50)     NOT NULL,
-    FILE_NOTES			TEXT,
-    DATE_ADDED           DATE
-);
-
-CREATE TABLE DOCUMENT_FOLDER(
-    PRIVATE_KEY          INT,
-    TITLE		VARCHAR(50)         NOT NULL,
-    FOLDER_NOTES		TEXT,
-    DATE_ADDED         DATE
-);
-
-
 
 # Database
 # verification.html

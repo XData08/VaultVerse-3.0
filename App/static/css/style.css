@@ -84,12 +84,6 @@ h1.top-line::before {
     align-items: center;
 }
 
-.custom-position{
-    position: absolute;
-    top: 4rem;
-    width: 100%;
-
-}
 .custom-width {
     width : 50vw;
 }
@@ -103,6 +97,13 @@ h1.top-line::before {
     display : flex;
     justify-content: center;
     align-items : center;
+}
+
+.vinput{
+    display : inline-block;
+    width : 2.3rem;
+    height: 4rem;
+    font-weight: bold;
 }
 
 @media screen and (max-width : 1280px){
@@ -122,10 +123,6 @@ h1.top-line::before {
 
 @media screen and (max-width : 768px){
     .custom-title { font-size: 3rem; }
-}
-
-@media screen and (max-width : 575px){
-    .custom-position{ top : 3.5rem; }
 }
 
 @media screen and (max-height : 700px){
