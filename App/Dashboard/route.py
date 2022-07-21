@@ -12,7 +12,7 @@ from App import db
 Dashboard : Blueprint = Blueprint("Dashboard", __name__)
 
 
-@Dashboard.route("/vaultverse-dashboard/<int:code>/<string:UserName>", methods=["POST", "GET"])
+@Dashboard.route("/vaultverse-user-dashboard/<int:code>/<string:UserName>", methods=["POST", "GET"])
 @login_required 
 def DashboardPage(UserName : str, code : int) -> str:
 
@@ -26,7 +26,7 @@ def DashboardPage(UserName : str, code : int) -> str:
 
     return render_template(
         "user/dashboard.html",
-        UserName = UserName
+        code=code
     )
 
 
@@ -35,6 +35,14 @@ def AdminPage(UserName : str, code : int) -> str:
 
     return render_template(
         "user/admin.html",
-        UserName = UserName,
+        code=code, 
         IsAdmin = True
+    )
+
+
+@Dashboard.route("/vaultverse-settings/<int:code>/<string:UserName>")
+def SettingsPage(UserName : str, code : int) -> str:
+    return render_template(
+        "user/settings.html",          
+        code=code
     )

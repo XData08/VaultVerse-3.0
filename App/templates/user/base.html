@@ -32,27 +32,27 @@
                 </div>
         
                 <div class="list-group list-group-flush my-3">
-                    <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
-                        <i class="uil uil-airplay me-4 fs-5"></i>Dashboard</a>
-                    
                     {% if IsAdmin %}
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Dashboard.AdminPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
+                            <i class="uil uil-airplay me-4 fs-5"></i>Dashboard</a>
+                        <a href="{{ url_for('Admin.UsersPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-users-alt me-4 fs-5"></i>Users</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Admin.FeedbackPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-feedback me-4 fs-5"></i>User Feedback</a>
-
                     {% else %}
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Dashboard.DashboardPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
+                            <i class="uil uil-airplay me-4 fs-5"></i>Dashboard</a>
+                        <a href="{{ url_for('Users.CredentialsPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-credit-card me-4 fs-5"></i>Credentials</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Users.RecordsPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-notes me-4 fs-5"></i>Records</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Users.GalleryPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-images me-4 fs-5"></i>Gallery</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Users.FilesPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-folder-open me-4 fs-5"></i>Files</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Dashboard.SettingsPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-cog me-4 fs-5"></i>Settings</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-light fw-bold">
+                        <a href="{{ url_for('Users.HelpPage', UserName=current_user.userName, code=code) }}" class="list-group-item list-group-item-action bg-light fw-bold">
                             <i class="uil uil-question-circle me-4 fs-5"></i></i>Help</a>
                     {% endif %}
                     <a href="{{ url_for('Forms.LogoutPage') }}" class="list-group-item list-group-item-action text-danger bg-light fw-bold">
@@ -66,7 +66,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light py-4 px-4">
                     <div class="d-flex align-items-center">
                         <i class="uil uil-list-ui-alt  fa-align-left fs-4 me-3" id="menu-toggle"></i>
-                        <h2 class="fs-2 m-0">Dashboard</h2>
+                        <h2 class="fs-2 m-0">{% block content %} {% endblock %}</h2>
                     </div>
         
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -80,11 +80,13 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fas fa-user me-2"></i> {{ UserName }}
+                                    <i class="fas fa-user me-2"></i> {{ current_user.userName }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="#">Profile</a></li>
-                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    {% if not IsAdmin %}
+                                        <li><a class="dropdown-item" href="{{ url_for('Dashboard.SettingsPage', UserName=current_user.userName, code=code) }}">Settings</a></li>
+                                    {% endif %}
                                     <li><a class="dropdown-item" href="{{ url_for('Forms.LogoutPage') }}">Logout</a></li>
                                 </ul>
                             </li>

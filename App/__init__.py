@@ -25,12 +25,16 @@ def create_app(class_config : Config = Config) -> Flask:
 
     from App.Front.route import Front
     from App.Dashboard.route import Dashboard
+    from App.Dashboard.admin import Admin
+    from App.Dashboard.users import Users
     from App.Forms.auth import Forms
     from App.models import User
 
 
     app.register_blueprint(Front, url_prefix="/")
     app.register_blueprint(Dashboard, url_prefix="/")
+    app.register_blueprint(Admin, url_prefix="/")
+    app.register_blueprint(Users, url_prefix="/")
     app.register_blueprint(Forms, url_prefix="/")
 
     create_db(app)
