@@ -25,11 +25,18 @@ def AboutPage() -> str:
     )
 
 
-@Front.route("/<path:path>/<string:errmsg>/<string:verified>/<int:code>")
-@Front.route("/<path:path>/<string:errmsg>/<string:verified>")
-@Front.route("/<path:path>/<string:errmsg>")
+@Front.route("/<string:errmsg>/<string:verified>/<int:code>/<path:path>/")
+@Front.route("/<string:errmsg>/<string:verified>/<path:path>/")
+@Front.route("/<string:errmsg>/<path:path>/")
 @Front.route("/<path:path>")
-def ErrorPage(path, errmsg : str, verified : str = "False", code : int = 0) -> str:
+def ErrorPage(path, errmsg : str = "", verified : str = "False", code : int = 0) -> str:
+
+    if errmsg == "":
+        errmsg = """
+            Web Page does not Exists.
+        
+        """
+
     return render_template(
         "error.html",
         isFooterClose=True, 

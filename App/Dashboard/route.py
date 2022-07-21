@@ -28,3 +28,13 @@ def DashboardPage(UserName : str, code : int) -> str:
         "user/dashboard.html",
         UserName = UserName
     )
+
+
+@Dashboard.route("/vaultverse-admin-dashboard/<int:code>/<string:UserName>")
+def AdminPage(UserName : str, code : int) -> str:
+
+    return render_template(
+        "user/admin.html",
+        UserName = UserName,
+        IsAdmin = True
+    )

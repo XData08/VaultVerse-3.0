@@ -146,18 +146,22 @@ def VerificationPage(EmailAddress : str) -> str:
 
     try:
         if request.method == "POST":
-        
+    
             user = User.query.filter_by(emailAddress = EmailAddress).first()
             userCode : str = ""
 
             for i in range(1, 7):
                 userCode += request.form.get(f"code{i}")
-            
+    
             if userCode != " ":
                 if userCode == VERIFICATION_CODE:
                     VERIFICATION_CODE = ""
-                    return redirect(url_for("Dashboard.DashboardPage", 
-                        UserName=user.userName, code=userCode))
+                    if user.id == 1:
+                        return redirect(url_for("Dashboard.AdminPage",
+                            UserName=user.userName, code=userCode))
+                    else:
+                        return redirect(url_for("Dashboard.DashboardPage", 
+                            UserName=user.userName, code=userCode))
                 else:
                     flash("Verification code does not match.", "warning")
             else:
