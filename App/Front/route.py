@@ -1,11 +1,35 @@
-from flask import Blueprint, render_template
+from blinker import receiver_connected
+from flask import (
+    Blueprint, render_template,
+    request, redirect, url_for,
+    flash
+)
+from flask_mail import Message
+from App.config import EMAIL
+from App import mail
 
 
 Front : Blueprint = Blueprint("Front", __name__)
 
 
-@Front.route("/")
+@Front.route("/", methods=["POST", "GET"])
 def IndexPage() -> str:
+    
+    if request.method == "POST":
+        emailAddress = request.form.get("emailAddress")
+        try:
+            msg = Message(
+                "Thank you! For Subscribing.",
+                sender=EMAIL,
+                html=render_template("components/newsletter.html"),
+                recipients=[emailAddress]
+            )
+            mail.send(msg)
+            flash("Thank you for Subscribing to VaultVerse! Check Email for Newsletter.", "success")
+            
+        except Exception as e:
+            return redirect(url_for("Front.ErrorPage", path="/error/", error=e))
+
     return render_template(
         "index.html"
     )
@@ -34,7 +58,6 @@ def ErrorPage(path, errmsg : str = "", verified : str = "False", code : int = 0)
     if errmsg == "":
         errmsg = """
             Web Page does not Exists.
-        
         """
 
     return render_template(

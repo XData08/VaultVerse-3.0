@@ -23,27 +23,26 @@
         .wrapper {
           width: 100%;
           table-layout: fixed;
-          background-color: #cccccc;
-          padding-bottom: 60px;
+          background-color: #F1F1F1;
           position: sticky;
           top: 0;
         }
         .main {
-          background-color: #ffffff;
+          background-color: #F9F9F9;
           margin: 0 auto;
           width: 100%;
           max-width: 600px;
           border-spacing: 0;
-          font-family: sans-serif;
           color: #171a1b;
           border-radius: 10px;
         }
         
         .logo {
-          font-family: 'Montserrat', sans-serif;
+          font-family: 'Montserrat';
           font-size: 43px;
-          font-weight: bold;
-          text-align: center; 
+          font-weight: 850;
+          text-align: right; 
+          margin-right: 20px;
         }
 
         .two-columns .column {
@@ -52,6 +51,7 @@
           display: inline-block;
           vertical-align: top;
         }
+
         .topBorder {
           position: sticky;
           top: 0;
@@ -61,18 +61,21 @@
         .card {
           width: 100%;
           border-collapse: collapse;
-          background-color: #fff2f2;
-          border-radius: 50px;
-          margin-right:auto;
+          background-color: #ffffff;
           border-collapse: collapse;
-          border-end-end-radius: 10px;
-          border-bottom-left-radius: 10px;
+          border-top-left-radius: 70px;
+          border-top-right-radius: 70px;
         }
+
         .greet {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 20px;
+          font-family: 'Montserrat';
+          font-size: 30px;
           font-weight: bold;
-          padding-left:10px;
+          line-height: 40px;
+          text-align: center;
+          padding-top:25px;
+          padding-bottom: 5px;
+          color: #333333;
         }
        .button { 
         background-color: #DC3545;
@@ -81,10 +84,11 @@
         padding: 13px 50px;
         text-align: center; 
         justify-content: center; 
+        align-items: center;
         font-size: 35px;
         border-radius: 12px;
         font-weight: bold;
-        letter-spacing: 7px;
+        letter-spacing: 9px;
        }
 
        .container {
@@ -96,8 +100,9 @@
        .content {
         word-wrap: break-word;
         text-justify: inter-word; 
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 50px;
+        margin-right: 50px;
+        color: #555555;
         }
 
         .line {
@@ -160,21 +165,22 @@
                   <table class="card">
                     <tr>
                       <td>
-                        <div style=" padding:30px 40px 0 25px">
-                          <p class="greet" style="text-align:left">Hi {{ UserName }},</p>
+                        <div>
+                          <p class="greet">Hi {{ UserName }},</p>
                         </div>
-                        <div class="content" style="padding-bottom: 2px">
-                          <p id="content" style=" font-family: 'Montserrat'; font-size: 17px;  padding: 5px 0 10px ">
-                            Thanks for registering for an account on VaultVerse! Before we get started, we just need to confirm that this is you.
-                             Please enter the code below on the email verification page:
+                        <div class="content" style="padding-bottom: 3px; font-family: 'Roboto';">
+                          <p id="content" style=" font-size: 17px">
+                            Use the verification code below to log in. Do not share this code to anyone.
                           </p>
-                        </div>
-                          <button type="button" style="text-align: center;" class="button">{{ code }}</button>
-                        <div class="content" style="padding: 20px 0 30px 0 ">
-                          <p id="content" style=" font-family: 'Montserrat'; font-size: 17px;">
-                            We advise creating a special password for your VaultVerse account to keep it secure. 
-                          VaultVerse's two-factor authentication eliminates the need to remember or update passwords,
-                          making it simpler to sign in to your account.
+                          <div style="padding-bottom: 40px;">
+                            <button type="button" style="text-align: center" class="button">{{ code }}</button>
+                          </div>
+                          <hr style="color:#ababab">
+
+                        <div class="content" style="padding: 30px 0 30px 0 ">
+                          <p id="content" style=" font-family: sans-serif; font-size: 14px;">
+                            You received this email because you requested to sign in to your VaulVerse account. 
+                            If you didn't request to log in, you can safely ignore this email.
                           </p>
                         </div>
                         <div class="line"></div>

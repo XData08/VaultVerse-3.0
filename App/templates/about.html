@@ -1,244 +1,185 @@
-{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <meta http-equiv="Content-Type" content="text/html charset= utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-{% block title %} VaultVerse | About {% endblock %}
+    <title>VaultVerse</title>
+    <style type="text/css">
+        body {
+            margin:0;
+            background-color: #F1F1F1
+
+        }
+        table {
+            border-spacing:0;
+        }
+        td {
+            padding: 0;
+        }
+
+/* main background */
+        .wrapper { 
+          width: 100%;
+          table-layout: fixed;
+          background-color: #F1F1F1 ;
+          position: sticky;
+          top: 0;
+        }
+/* logo container */
+        .main {
+          background-color: #F9F9F9 ;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 600px;
+          border-spacing: 0;
+          color: #171a1b;
+          border-radius: 10px;
+        }
+        
+        .logo {
+          font-family: 'Montserrat';
+          font-size: 43px;
+          font-weight: 850;
+          text-align: right; 
+          margin-right: 20px;
+        }
+
+        .topBorder {
+          position: sticky;
+          top: 0;
+          z-index: 9999;
+        }
+
+        .card {
+          width: 100%;
+          border-collapse: collapse;
+          background-color: #ffffff;
+          border-collapse: collapse;
+          border-top-left-radius: 70px;
+          border-top-right-radius: 70px;
+
+        }
+        .user {
+          font-family: 'Montserrat';
+          font-size: 30px;
+          font-weight: bold;
+          line-height: 40px;
+          text-align: center;
+          padding-top:25px;
+          padding-bottom: 5px;
+          color: #333333;
+
+        }
+       .button { 
+        background-color: #DC3545;
+        border: none;
+        color: white;
+        padding: 13px 50px;
+        text-align: center; 
+        justify-content: center; 
+        align-items: center;
+        font-size: 35px;
+        border-radius: 12px;
+        font-weight: bold;
+        letter-spacing: 9px;
+       }
+
+       .container {
+        margin: 0;
+        position: relative;
+        left: 26%;
+       }
+
+       .content{
+        word-wrap: break-word;
+        text-justify: inter-word; 
+        margin-left: 50px;
+        margin-right: 50px;
+        color: #555555;
+        }
 
 
-{% block head %}
+        .line {
+          border-top: 6px solid #DC3545;
+          border-radius: 5px;
+          width: 40%;
+          margin-left: auto;
+          margin-right:auto;
+          padding-top:0;
+          padding-bottom: 0;
+        } 
 
-{% endblock %}
-
-
-{% block body %}
-<section class="container-fluid div-image-1 my-image">
-    <div class="div-overlay d-flex justify-content-center align-items-center">
-        <div class="text-white text-center">
-            <h1 class="title">About</h1>
-            <p class="pt-3"><i class="uil uil-robot"></i> MaxxTechTips</p>
-        </div>
-    </div> 
-</section>
-
-<section class="container my-5 py-0 py-lg-3">
-    <div class="container-fluid py-3">
-        <div class="row align-items-center">
-            <div class="col-lg-5">
-                <h1 class="title fw-bold top-line">
-                    Our Story
-                </h1>
-                <p class="fs-5 pb-2">
-                    What? Why? How?
-                </p>
-            </div>
-            <div class="col-lg-7">
-                <p class="pb-2">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam qui accusamus tenetur aspernatur, eligendi veritatis vitae velit repellendus. Nobis asperiores quaerat impedit perspiciatis, a vitae architecto aliquam, corrupti possimus sed voluptates quisquam numquam quas! Dolor porro error reprehenderit assumenda earum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi possimus, expedita doloribus, molestias beatae nesciunt aliquam cum eius minima id tempora atque est error voluptates deserunt. In consectetur nostrum voluptatem fugiat inventore ex velit at error, quibusdam esse natus unde culpa cumque obcaecati consequuntur adipisci et. Voluptate accusamus provident voluptas debitis asperiores quidem quae consequatur nobis repellendus deleniti adipisci accusantium, dolorem facere officiis nostrum magnam nisi quibusdam voluptates unde doloremque dolore. Eius, sunt accusantium. Voluptatem nobis odio reiciendis illum ea?
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container-fluid my-5 bg-light">
-    <div class="container py-5">
-        <div class="text-center pb-3">
-            <h1 class="fw-bold">Developer Team</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, accusantium!</p>
-        </div>
-        <div class="row g-3">
-            <div class="col-lg-3 col-sm-6">
-                <div class="card scale-image">
-                    <div class="card-body text-center">
-                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
-                            class="rounded-circle mb-3 mt-2 w-25"
-                            alt=""/> 
-                        <h5 class="card-title fw-bold">Lirae Que Data</h5> 
-                        <h6 class="card-subtitle mb-3 text-muted">Project Manager</h6>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card scale-image">
-                    <div class="card-body text-center">
-                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
-                            class="rounded-circle mb-3 mt-2 w-25"
-                            alt=""/> 
-                        <h5 class="card-title fw-bolder">Leonard Relacion</h5> 
-                        <h6 class="card-subtitle mb-3 text-muted">BackEnd Developer</h6>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card scale-image">
-                    <div class="card-body text-center">
-                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
-                            class="rounded-circle mb-3 mt-2 w-25"
-                            alt=""/> 
-                        <h5 class="card-title fw-bold">Maximille Gratia Pacis</h5> 
-                        <h6 class="card-subtitle mb-3 text-muted">FrontEnd Developer</h6>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="card scale-image">
-                    <div class="card-body text-center">
-                        <img src="{{ url_for('static', filename='image/max.jpg') }}"
-                            class="rounded-circle mb-3 mt-2 w-25"
-                            alt=""/> 
-                        <h5 class="card-title fw-bold">Shiela Mae Lepon</h5> 
-                        <h6 class="card-subtitle mb-3 text-muted">FrontEnd Developer</h6>
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, cupiditate.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        .copyright {
+          font-size: 10px;
+          text-align: center;
+          padding-bottom: 20px;
+        }
+    </style>
+  </head>
 
 
-<section class="container-fluid my-5">
-    <div class="container mb-3">
-        <div class="row g-3">
-            <div class="col-md">
-                <h2 class="text-center mb-4">Contact Info</h2>
-                <ul class="list-group list-group-flush lead">
-                    <li class="list-group-item">
-                        <span class="fw-bold">Company Name:</span> MaxxTechTips
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold">Main Location:</span> Cebu City
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold">Phone Number:</span> (+63) 976 029 2633
-                    </li>
-                    <li class="list-group-item">
-                        <span class="fw-bold">Email Address:</span> XDApplication.HelpCenter@gmail.com
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md">
-                <div id="map" ></div>
-            </div>
-        </div>
-    </div>
-</section>
-<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+  <body>
+    <center class="wrapper">
+      <table class="main" width="100%">
 
+<!-- Top Border -->
+        <tr>
+          <td class="topBorder" height="8" style="background-color: #DC3545;"></td>
+        </tr>
 
-<section class="container my-5 py-3">
-    <section class="container-fluid bg-light rounded p-3 px-1 p-lg-5">
-        <div class="mb-4">
-            <h1 class="fw-bold">FAQs</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, assumenda.</p>
-        </div>
-   
-        <div class="accordion accordion-flush" id="FAQsAccordion">
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" 
-                            data-bs-toggle="collapse" 
-                            data-bs-target="#collapseOne">
-                        Accordion Item #1    
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show"
-                    data-bs-parent="#FAQsAccordion">
-                    <div class="accordion-body">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem numquam unde eum at officia similique inventore porro ducimus, eos eveniet non doloribus possimus asperiores et optio, rerum enim voluptates nulla? Nihil necessitatibus magnam provident corporis adipisci ullam voluptates porro harum odit ex soluta modi, dolorem veritatis quo doloremque a! Quaerat.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo">
-                        Accordion Item #2    
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" 
-                    data-bs-parent="#FAQsAccordion">
-                    <div class="accordion-body">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree">
-                        Accordion Item #3
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" 
-                    data-bs-parent="#FAQsAccordion">
-                    <div class="accordion-body">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour">
-                        Accordion Item #4   
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" 
-                    data-bs-parent="#FAQsAccordion">
-                    <div class="accordion-body">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFive">
-                    <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapseFive">
-                        Accordion Item #5   
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" 
-                    data-bs-parent="#FAQsAccordion">
-                    <div class="accordion-body">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni perspiciatis fuga earum, eos possimus ipsa. Excepturi dolorum praesentium facilis fugiat illum sed doloribus ducimus nam cum aspernatur non expedita eos a molestiae beatae, asperiores dolore voluptates ipsum vel! Consectetur, dicta molestias et eos optio vitae dolor nihil earum nulla eligendi.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-</section>  
-{% endblock %}
+<!-- Logo Section -->
+        <tr>
+          <td style=" padding-bottom:0px;">
+            <table width="100%">
+              <p class="logo">
+                Vault<span style ="color: #DC3545;">Verse</span>
+              </p>
+            </table>
+          </td>
+        </tr>
+<!-- Card body -->
+        <tr>
+          <td>
+            <table width="100%">
+              <tr>
+                <td style="text-align: center;">
+                  <table class="card">
+                    <tr>
+                      <td>
+                        <div">
+                          <p class="user">Hi WannaCry081,</p>
+                        </div>
+                        <div class="content" style="padding-bottom: 3px; font-family: 'Roboto';">
+                          <p id="content" style="font-size: 17px; ">
+                            Use the verification code below to log in. Do not share this code to anyone.
+                          </p>
+                        </div>
+                        <div style="padding-bottom: 40px;">
+                          <button type="button" style="text-align: center" class="button">135790</button>
+                        </div>
+                        <hr style="color:#ababab">
+                        <div class="content" style="padding: 30px 0 30px 0 ">
+                          <p id="content" style=" font-family: sans-serif; font-size: 14px;">
+                            You received this email because you requested to sign in to your VaulVerse account. 
+                            If you didn't request to log in, you can safely ignore this email.
+                          </p>
+                        </div>
+                        <div class="line"></div>
+                        <div>
+                          <h5 class="copyright">Copyright © 2022 MaxxTechTips </h5>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+  </body>
+</html> 

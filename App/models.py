@@ -43,7 +43,7 @@ class User(db.Model, UserMixin):
         self.fileNo = 0
 
     def __repr__(self):
-        return "<Users %r>"%self.userName
+        return "<UserName %r>"%self.userName
 
 
 class Verification(db.Model):
@@ -53,6 +53,9 @@ class Verification(db.Model):
     answer = db.Column(db.String(200))
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    def __repr__(self):
+        return "<Verification id %r>"%self.id
 
 
 # Start Content : @Credential 
@@ -69,6 +72,9 @@ class CredentialAccount(db.Model):
     date = db.Column(db.String(50))
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    def __repr__(self):
+        return "<Account id %r>"%self.id
 
 
 class CredentialAddress(db.Model):
@@ -87,6 +93,9 @@ class CredentialAddress(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
+    def __repr__(self):
+        return "<Address id %r>"%self.id
+
 
 class CredentialBankAccount(db.Model):
 
@@ -101,6 +110,9 @@ class CredentialBankAccount(db.Model):
     date = db.Column(db.String(20))
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    def __repr__(self):
+        return "<Bank Account id %r>"%self.id
 
 
 class CredentialDriversLicense(db.Model):
@@ -122,6 +134,9 @@ class CredentialDriversLicense(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
+    def __repr__(self):
+        return "<Drivers License id %r>"%self.id
+
 # End Content : @Credential 
 
 
@@ -137,6 +152,9 @@ class RecordLecture(db.Model):
     date = db.Column(db.String(20))
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    def __repr__(self):
+        return "<Lecture id %r>"%self.id
 
 
 # class RecordList(db.Model):

@@ -1,7 +1,8 @@
-<!Doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <meta http-equiv="Content-Type" content="text/html charset= utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,7 @@
     <style type="text/css">
         body {
             margin:0;
-            background-color: #cccccc
+            background-color: #F1F1F1
 
         }
         table {
@@ -20,38 +21,33 @@
         td {
             padding: 0;
         }
-        .wrapper {
+
+/* main background */
+        .wrapper { 
           width: 100%;
           table-layout: fixed;
-          background-color: #cccccc;
-          padding-bottom: 60px;
+          background-color: #F1F1F1 ;
           position: sticky;
           top: 0;
         }
+/* logo container */
         .main {
-          background-color: #ffffff;
+          background-color: #F9F9F9 ;
           margin: 0 auto;
           width: 100%;
           max-width: 600px;
           border-spacing: 0;
-          font-family: sans-serif;
           color: #171a1b;
-          border-radius: 10px;
         }
         
         .logo {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 43px;
-          font-weight: bold;
-          text-align: center; 
+          font-family: 'Montserrat';
+          font-size: 20px;
+          font-weight: 850;
+          text-align: left; 
+          margin-left: 20px;
         }
 
-        .two-columns .column {
-          width: 100%;
-          max-width: 300px;
-          display: inline-block;
-          vertical-align: top;
-        }
         .topBorder {
           position: sticky;
           top: 0;
@@ -61,18 +57,21 @@
         .card {
           width: 100%;
           border-collapse: collapse;
-          background-color: #fff2f2;
-          border-radius: 50px;
-          margin-right:auto;
+          background-color: #ffffff;
           border-collapse: collapse;
-          border-end-end-radius: 10px;
-          border-bottom-left-radius: 10px;
+        
+
         }
-        .greet {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 20px;
+        .user {
+          font-family: 'Montserrat';
+          font-size: 30px;
           font-weight: bold;
-          padding-left:10px;
+          line-height: 40px;
+          text-align: center;
+          padding-top:25px;
+          padding-bottom: 5px;
+          color: #333333;
+
         }
        .button { 
         background-color: #DC3545;
@@ -81,10 +80,11 @@
         padding: 13px 50px;
         text-align: center; 
         justify-content: center; 
+        align-items: center;
         font-size: 35px;
         border-radius: 12px;
         font-weight: bold;
-        letter-spacing: 7px;
+        letter-spacing: 9px;
        }
 
        .container {
@@ -93,12 +93,14 @@
         left: 26%;
        }
 
-       .content {
+       .content{
         word-wrap: break-word;
         text-justify: inter-word; 
-        margin-left: 75px;
-        margin-right: 75px;
+        margin-left: 50px;
+        margin-right: 50px;
+        color: #555555;
         }
+
 
         .line {
           border-top: 6px solid #DC3545;
@@ -115,6 +117,65 @@
           text-align: center;
           padding-bottom: 20px;
         }
+
+        .features{
+          font-family: 'Montserrat';
+          font-size: 17px;
+          font-weight: bold;
+          text-align: center;
+          color:#DC3545;
+          justify-content: center; 
+          align-items: center;
+        }
+
+        .featuresbody {
+          font-family: 'Montserrat';
+          font-size: 14px;
+          text-align: center;
+          color:#121212;
+          justify-content: center; 
+          align-items: center;
+
+        }
+
+        .three-columns {
+          align-items: center;
+          font-size: 0;
+          padding: 15px 0 25px;
+        }
+
+        .three-columns .column {
+          width:100%;
+          max-width: 200px;
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+        }
+
+        .three-columns .padding {
+          padding:15px 0 20px;
+        }
+
+        .three-columns .content {
+          font-size: 15px;
+          line-height: 17px;
+        }
+
+        .two-columns
+        {
+          padding: 15px 0;
+        }
+
+        .two-columns .padding{
+          padding: 20px;
+        }
+
+        .two-columns .content{
+          font-size: 15px;
+          line-height: 17px;
+          text-align: left;
+        }
+
     </style>
   </head>
 
@@ -130,60 +191,107 @@
 
 <!-- Logo Section -->
         <tr>
-          <td style="padding: 40px 0 10px">
-            <table width="100%" >
-              <tr>
-                <td>
-                  <table class="column">
-                    <tr>
-                      <td style="padding: 10px 30px 10px">
-                        <a class="logo " >
-                          Vault<span style ="color: #DC3545;">Verse</span>
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-
-                </td>
-              </tr>
-
+          <td style=" padding-bottom:0px;">
+            <table width="100%">
+              <p class="logo">
+                Vault<span style ="color: #DC3545;">Verse</span>
+              </p>
             </table>
           </td>
         </tr>
+<!-- Banner Image -->
+       <tr>
+        <td>
+          <a href="#"><img src="{{ url_for('static', filename='image/bg.png') }}" alt="" width="600"
+            style="max-width:100%"></a>
+        </td>
+       </tr>
+<!-- three-column section -->
+<tr>
+  <td>
+    <table width="100%">
+      <tr>
+        <td class="three-columns">
 
-<!-- Card body -->
+          <table class="column">
+            <tr>
+              <td class="padding">
+                <table class="content">
+                  <tr>
+                    <td>
+                      <a href="#"><img src="{{ url_for('static', filename='image/easy-to-use.png') }}" alt="" width="85" 
+                        style="max-width:85px;"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="features" style="padding-bottom:2px"> Easy to Use </p>
+                      <p class="featuresbody">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, odit.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="column">
+            <tr>
+              <td class="padding">
+                <table class="content">
+                  <tr>
+                    <td>
+                      <a href="#"><img src="{{ url_for('static', filename='image/security.png') }}" alt="" width="85" 
+                        style="max-width:85px;"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="features">Secure Storage</p>
+                      <p class="featuresbody">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, odit.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+
+          <table class="column">
+            <tr>
+              <td class="padding">
+                <table class="content">
+                  <tr>
+                    <td>
+                      <a href="#"><img src="{{ url_for('static', filename='image/efficiency.png') }}" alt="" width="85" 
+                        style="max-width:85px;"></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="features">Fast & Accessible </p>
+                      <p class="featuresbody">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, odit.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          
+<!-- two-column -->
         <tr>
           <td>
-            <table width="100%">
+            <table width="100%" style="background-color: #DC3545;">
+
               <tr>
-                <td style="text-align: center;">
-                  <table class="card">
-                    <tr>
-                      <td>
-                        <div style=" padding:30px 40px 0 25px">
-                          <p class="greet" style="text-align:left">Hi {{ UserName }},</p>
-                        </div>
-                        <div class="content" style="padding-bottom: 2px">
-                          <p id="content" style=" font-family: 'Montserrat'; font-size: 17px;  padding: 5px 0 10px ">
-                            Thanks for registering for an account on VaultVerse! Before we get started, we just need to confirm that this is you.
-                             Please enter the code below on the email verification page:
-                          </p>
-                        </div>
-                          <button type="button" style="text-align: center;" class="button">{{ code }}</button>
-                        <div class="content" style="padding: 20px 0 30px 0 ">
-                          <p id="content" style=" font-family: 'Montserrat'; font-size: 17px;">
-                            We advise creating a special password for your VaultVerse account to keep it secure. 
-                          VaultVerse's two-factor authentication eliminates the need to remember or update passwords,
-                          making it simpler to sign in to your account.
-                          </p>
-                        </div>
-                        <div class="line"></div>
-                        <div>
-                          <h5 class="copyright">Copyright © 2022 MaxxTechTips </h5>
-                        </div>
-                      </td>
-                    </tr>
-                  </table>
+                <td style="text-align: center; padding: 15px 0 20px;">
+                  <p style="font-size: 20px; font-weight:bold; font-size: 30px; color: #ffffff;font-family: 'Montserrat';">OUR MISSION</p>
+                  <p style="font-size: 20px;; font-size: 15px; color: #ffffff; font-family: 'Montserrat'; margin-left: 50px;margin-right:50px" >
+                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, aperiam quia, dicta debitis reiciendis dolorum vero dolor autem vitae explicabo totam est mollitia harum illum sequi architecto magnam commodi ea.</p>
                 </td>
               </tr>
             </table>

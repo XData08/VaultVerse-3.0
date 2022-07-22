@@ -50,6 +50,7 @@ def LoginPage() -> str:
                                 recipients=[emailAddress]
                             )
                             mail.send(msg)
+
                             login_user(_emailAddress, remember=True)
                             return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
                         else:
@@ -114,6 +115,7 @@ def SignupPage() -> str:
                                     recipients=[emailAddress]
                                 )
                                 mail.send(msg)
+
                                 login_user(new_user)
                                 return redirect(url_for("Forms.VerificationPage", EmailAddress=emailAddress))
                             else:
@@ -135,6 +137,7 @@ def SignupPage() -> str:
 @Forms.route("/vaultverse-logout")
 @login_required
 def LogoutPage() -> str:
+    flash("Successfully Logged Out of the Account.", "success")
     logout_user()
     return redirect(url_for("Forms.LoginPage"))
 
@@ -152,7 +155,12 @@ def VerificationPage(EmailAddress : str) -> str:
 
             for i in range(1, 7):
                 userCode += request.form.get(f"code{i}")
-    
+
+            print("=" * 10)
+            print(userCode)
+            print(VERIFICATION_CODE)
+            print("=" * 10)
+
             if userCode != " ":
                 if userCode == VERIFICATION_CODE:
                     VERIFICATION_CODE = ""
